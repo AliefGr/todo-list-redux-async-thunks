@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../store/thunks/todoThunk";
 
-const TodoHeader = ({addTodo}) => {
-
+const TodoHeader = () => {
+    const dispatch = useDispatch();
     const [todoInput, setTodoInput] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTodo(todoInput);
+        const todo = {text : todoInput, completed : false};
+        dispatch(addTodo(todo));
     }
 
     const handleChange = (e) => {

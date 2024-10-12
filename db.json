@@ -13,6 +13,16 @@
     {
       "id": "0cc2",
       "text": "Leran React JS",
+      "completed": true
+    },
+    {
+      "id": "5659",
+      "text": "Workout",
+      "completed": false
+    },
+    {
+      "id": "25b8",
+      "text": "wqeew",
       "completed": false
     }
   ]

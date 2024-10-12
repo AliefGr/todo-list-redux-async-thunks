@@ -1,11 +1,17 @@
 import { GrClose } from "react-icons/gr"
+import { editTodo, deleteTodo } from "../store/thunks/todoThunk"
+import { useDispatch } from "react-redux"
 
-const TodoItem = ({editTodo, deleteTodo, todo}) => {
-    const handleEdit  = () =>{
-        editTodo(todo)
+const TodoItem = ({todo}) => {
+
+    const dispatch = useDispatch();
+
+    const handleEdit  = () => {
+        const editedTodo = {...todo, completed : !todo.completed}
+        dispatch(editTodo(editedTodo))
     }
     const handleDelete = () => {
-        deleteTodo(todo.id)
+        dispatch(deleteTodo(todo.id))
     }
   return (
         <li className={`todo-item ${todo.completed  ? 'checked' : ''}`}>
